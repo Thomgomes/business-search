@@ -21,7 +21,7 @@ Introdução de implementação de API
 Clone o projeto
 
 ```bash
-  git clone ...
+  git clone https://github.com/Thomgomes/business-search
 ```
 
 Entre no diretório do projeto
