@@ -1,25 +1,38 @@
-import { View, Text } from 'react-native'
-import React, { useState, useEffect } from 'react'
+import { View, Text, ScrollView, StyleSheet } from 'react-native'
+import React, { useState } from 'react'
 import SearchBar from '../../components/SearchBar'
-import yelp from '../../api/yelp'
 import useResult from '../../hooks/useResult'
+import ResultList from '../../components/ResultList'
 
 const SearchScreen = () => {
     const [term, setTerm] = useState('')
     const [searchApi, results, errorMessage] = useResult()
 
+    const filterResultByPrice = (price) => {
+        return results.filter(result => {
+            return result.price === price
+        })
+    }
 
     return (
-        <View>
+        <>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
                 onTermSubmit={() => searchApi(term)}
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
-            <Text>você encontrou um total de {results.length} resultados</Text>
-        </View>
+            <ScrollView>
+                <ResultList title='Custo-benefício' results={filterResultByPrice('$')} />
+                <ResultList title='Pouco árduo' results={filterResultByPrice('$$')} />
+                <ResultList title='Grandes Consumidores' results={filterResultByPrice('$$$')} />
+            </ScrollView>
+        </>
     )
 }
+
+// const styles = StyleSheet.create({
+
+// })
 
 export default SearchScreen
