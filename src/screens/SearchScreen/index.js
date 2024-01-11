@@ -15,7 +15,7 @@ const SearchScreen = () => {
     }
 
     return (
-        <>
+        <View style={styles.constainer}>
             <SearchBar
                 term={term}
                 onTermChange={setTerm}
@@ -23,16 +23,19 @@ const SearchScreen = () => {
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
             <ScrollView>
-                <ResultList title='Custo-benefício' results={filterResultByPrice('$')} />
-                <ResultList title='Pouco árduo' results={filterResultByPrice('$$')} />
-                <ResultList title='Grandes Consumidores' results={filterResultByPrice('$$$')} />
+                <ResultList propNavigation='ResultsShowScreen' title='Custo-benefício' results={filterResultByPrice('$')} />
+                <ResultList propNavigation='ResultsShowScreen' title='Pouco árduo' results={filterResultByPrice('$$')} />
+                <ResultList propNavigation='ResultsShowScreen' title='Grandes Consumidores' results={filterResultByPrice('$$$')} />
             </ScrollView>
-        </>
+        </View>
     )
 }
 
-// const styles = StyleSheet.create({
-
-// })
+const styles = StyleSheet.create({
+    constainer: {
+        flex: 1,
+        backgroundColor: '#FFFFFF',
+    }
+})
 
 export default SearchScreen
