@@ -3,8 +3,13 @@ import React from 'react'
 import ResultDetail from '../ResultDetail'
 import { useNavigation } from '@react-navigation/native'
 
-const ResultList = ({ title, results, propNavigation }) => {
+const ResultList = ({ title, results }) => {
     const navigation = useNavigation()
+
+    if (!results.length) {
+        return null
+    }
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{title}</Text>
@@ -17,9 +22,9 @@ const ResultList = ({ title, results, propNavigation }) => {
                 renderItem={({ item }) => {
                     return (
                         <TouchableOpacity
-                            onPress={() => navigation.navigate(propNavigation)}
+                            onPress={() => navigation.navigate('ResultsShowScreen', { item })}
                         >
-                            <ResultDetail result={item}/>
+                            <ResultDetail result={item} />
                         </TouchableOpacity>
                     )
                 }}

@@ -10,15 +10,23 @@ export default function Routes() {
     return (
         <Stack.Navigator>
             <Stack.Screen
+                getId={({ params }) => {
+                    console.log({ params });
+                    return params?.userId;
+                }}
                 name='SearchScreen'
                 component={SearchScreen}
-                // options={{ headerShown: false }}
-            />        
+            // options={{ headerShown: false }}
+            />
             <Stack.Screen
+                // getId={({ params }) => {
+                //     console.log({ params });
+                //     return params?.userId;
+                // }}
                 name='ResultsShowScreen'
                 component={ResultsShowScreen}
-                // options={{ headerShown: false }}
-            />        
+            // options={{ headerShown: false }}
+            />
         </Stack.Navigator>
     )
 }

@@ -23,9 +23,9 @@ const SearchScreen = () => {
             />
             {errorMessage ? <Text>{errorMessage}</Text> : null}
             <ScrollView>
-                <ResultList propNavigation='ResultsShowScreen' title='Custo-benefício' results={filterResultByPrice('$')} />
-                <ResultList propNavigation='ResultsShowScreen' title='Pouco árduo' results={filterResultByPrice('$$')} />
-                <ResultList propNavigation='ResultsShowScreen' title='Grandes Consumidores' results={filterResultByPrice('$$$')} />
+                <ResultList title='Custo-benefício' results={filterResultByPrice('$')} />
+                <ResultList title='Pouco árduo' results={filterResultByPrice('$$')} />
+                <ResultList title='Grandes Consumidores' results={filterResultByPrice('$$$')} />
             </ScrollView>
         </View>
     )
