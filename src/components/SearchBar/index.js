@@ -10,7 +10,7 @@ const SearchBar = ({term, onTermChange, onTermSubmit}) => {
       autoCapitalize='none'
       autoCorrect={false}
       style={styles.inputStyle} 
-      placeholder='Procurar'
+      placeholder='Procurar algo'
       value={term}
       onChangeText={onTermChange}
       onEndEditing={onTermSubmit}
